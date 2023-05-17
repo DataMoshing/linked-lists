@@ -37,7 +37,17 @@ class LinkedList {
         return this.head.value
     }
     tailNode() {
+        if (!this.head) {
+            return null
+        }
+        let node = this.head
 
+        while (node) {
+            if (!node.next) {
+                return node
+            }
+            node = node.next
+        }
     }
     toString() {
         let node = this.head
@@ -54,9 +64,9 @@ class LinkedList {
 
 
 class Node {
-    constructor(value, nextNode = null) {
+    constructor(value, next = null) {
         this.value = value
-        this.nextNode = nextNode
+        this.nextNode = next
     }
 }
 
