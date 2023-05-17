@@ -75,8 +75,15 @@ class LinkedList {
         return this.head
 
     }
-    containst() {
-
+    contains(value) {
+        let node = this.head
+        while (node) {
+            if (node.value === value) {
+                return true
+            }
+            node = node.next
+        }
+        return false
     }
     toString() {
         let node = this.head
@@ -95,7 +102,7 @@ class LinkedList {
 class Node {
     constructor(value, next = null) {
         this.value = value
-        this.nextNode = next
+        this.next = next
     }
 }
 
@@ -106,10 +113,11 @@ list.append(200)
 list.append(300)
 
 list.toString()
-list.nodeSize()
+// list.nodeSize()
 console.log("Count of nodes is " + list.nodeSize());
 console.log(list.headNode())
 console.log(list.tailNode())
 console.log(list.at(300))
 console.log(list.pop())
 list.toString()
+console.log(list.contains(200))
