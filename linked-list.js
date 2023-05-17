@@ -49,6 +49,20 @@ class LinkedList {
             node = node.next
         }
     }
+    at(value) {
+        let index = 0
+
+        let node = this.head
+
+        while (node) {
+            if (node.value === value) {
+                return index
+            }
+            node = node.next;
+            index++
+        }
+        return -1
+    }
     toString() {
         let node = this.head
         let str = " "
@@ -76,11 +90,10 @@ list.prepend(100)
 list.append(200)
 list.append(300)
 
-// console.log(ll)
-
 list.toString()
 list.nodeSize()
 
 console.log("Count of nodes is " + list.nodeSize());
 console.log(list.headNode())
 console.log(list.tailNode())
+console.log(list.at(300))
